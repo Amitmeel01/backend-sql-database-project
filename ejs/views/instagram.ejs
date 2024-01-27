@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>instagram</title>
+  </head>
+  <style>
+    img{
+      height:150px;
+      width:150px;
+    }
+  </style>
+  <body>
+    <h2>This page belongs to @<%= data.name %></h2>
+ 
+    <button>Message</button>
+    <button>Follow</button>
+
+    <!--followers ko loop se print krana , ejs m loop ko print karana sikhna-->
+
+    <!-- <h3>Account that follow you:</h3>
+    <ul>
+      <% for(let name of followers) {%>
+      <li><%=name %></li>
+      <%}%>
+    </ul> -->
+
+    <p>Followers : <%= data.followers %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    Followers : <%= data.following %></p>
+    <hr>
+<!--loop using for images-->
+
+  <% for(let post of data.posts) {%>
+    <img src="<%=post.image%>"> 
+    <p>Likes : <%= post.likes %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      comments : <%= post.comments %></p>
+      <%}%>
+  </body>
+</html>

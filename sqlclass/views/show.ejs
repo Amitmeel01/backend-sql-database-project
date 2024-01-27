@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>show page</title>
+    <style>
+      h1{
+        text-align: center;
+      }
+      table{
+        margin-left: 10rem;
+      }
+      table tr th,td {
+        border:1px solid black;
+      }
+     table td button{
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: blue;
+     }
+     .delete{
+      color: red;
+     }
+     
+     
+    </style>
+  </head>
+  <body>
+    <h1>show users</h1>
+    <table>
+      <tr class="tr">
+        <!---table row-->
+        <th>id </th>
+        <th>username</th>
+        <th>email</th>
+        <th>edit option</th>
+        <th>Delete option</th>
+      </tr>
+      <% for(user of result) { %>
+        <tr>
+          <td><%=user.id%></td>
+          <td><%=user.username%></td>
+          <td><%=user.email%></td>
+          <td>
+          <form action="/user/<%=user.id%>/edit" method="get">
+            <button>Edit username</button>
+          </form>
+        </td>
+        <td>
+          <form action="/user/<%=user.id%>/delete"
+          method="get">
+            <button class="delete">Delete</button>
+          </form>
+        </td>
+        </tr>
+     <%}%>
+    </table>
+  </body>
+</html>
+
+
